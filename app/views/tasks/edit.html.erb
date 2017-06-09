@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Task #<%= @task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_task/<%= @task.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @task.user_id %>">
+      </div>
+
+      <!-- Label and input for due_date -->
+      <div class="form-group">
+        <label for="due_date" class="control-label">
+          Due date
+        </label>
+
+        <input type="text" id="due_date" name="due_date" placeholder="Due date" class="form-control" value="<%= @task.due_date %>">
+      </div>
+
+      <!-- Label and input for date_completed -->
+      <div class="form-group">
+        <label for="date_completed" class="control-label">
+          Date completed
+        </label>
+
+        <input type="text" id="date_completed" name="date_completed" placeholder="Date completed" class="form-control" value="<%= @task.date_completed %>">
+      </div>
+
+      <!-- Label and input for task_title -->
+      <div class="form-group">
+        <label for="task_title" class="control-label">
+          Task title
+        </label>
+
+        <input type="text" id="task_title" name="task_title" placeholder="Task title" class="form-control" value="<%= @task.task_title %>">
+      </div>
+
+      <!-- Label and input for task_short_desc -->
+      <div class="form-group">
+        <label for="task_short_desc" class="control-label">
+          Task short desc
+        </label>
+
+        <input type="text" id="task_short_desc" name="task_short_desc" placeholder="Task short desc" class="form-control" value="<%= @task.task_short_desc %>">
+      </div>
+
+      <!-- Label and input for task_note -->
+      <div class="form-group">
+        <label for="task_note" class="control-label">
+          Task note
+        </label>
+
+        <input type="text" id="task_note" name="task_note" placeholder="Task note" class="form-control" value="<%= @task.task_note %>">
+      </div>
+
+      <!-- Label and input for wedding_id -->
+      <div class="form-group">
+        <label for="wedding_id" class="control-label">
+          Wedding
+        </label>
+
+        <input type="text" id="wedding_id" name="wedding_id" placeholder="Wedding" class="form-control" value="<%= @task.wedding_id %>">
+      </div>
+
+      <!-- Label and input for leader_id -->
+      <div class="form-group">
+        <label for="leader_id" class="control-label">
+          Leader
+        </label>
+
+        <input type="text" id="leader_id" name="leader_id" placeholder="Leader" class="form-control" value="<%= @task.leader_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Task
+      </button>
+      or
+      <a href="/tasks/<%= @task.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

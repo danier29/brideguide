@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609145447) do
+ActiveRecord::Schema.define(version: 20170609170139) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "wedding_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "due_date"
+    t.date     "date_completed"
+    t.string   "task_title"
+    t.string   "task_short_desc"
+    t.string   "task_note"
+    t.integer  "wedding_id"
+    t.integer  "leader_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +83,13 @@ ActiveRecord::Schema.define(version: 20170609145447) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_views_on_email", unique: true
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+  end
+
+  create_table "weddings", force: :cascade do |t|
+    t.string   "wedding_date"
+    t.string   "couple_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
