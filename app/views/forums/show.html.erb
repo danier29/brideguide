@@ -7,7 +7,7 @@
             </div>
           </div>
           </div>
-          </div>
+
 
 
 <!-- <div class="container">
@@ -21,10 +21,10 @@
   <div class="chat-message">
       <div class="col-md-12 bg-white">
         <ul class="chat" style="list-style-type: none">
-          <li class="left clearfix"> <span class="chat-img pull-left">
-            <img src="<%= comment.user.profile_photo %>" alt="User Avatar" class="img-square" height="70" width="70">
-            </span>
-                <div class="chat-body clearfix">
+          <li class="left clearfix"> <span class="chat-img pull-left" >
+            <img src="<%= comment.user.profile_photo %>" alt="User Avatar" class="img-square" height="80" width="100" hspace="20" >
+                  </span>
+                <div class="chat-body clearfix" >
                     <div class="header">
                         <strong class="primary-font"> <%= comment.user.name %> </strong>
                         <small class="pull-right text-muted">
@@ -36,15 +36,23 @@
                     </div>
                     </li>
                     </div>
-
+                  </div>
   <% end  %>
               <div class="panel-footer">
-                <div class="col-md-12 bg-white">
-                   <div class="input-group">
-                       <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+            <div class="input-group">
+                  <div class="col-md-12 bg-white">
+                     <form action="/create_comment" method="post">
+                       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                       <input name="user_id" type="hidden" value="<%= current_user.id %>">
+                       <input name="forum_id" type="hidden" value="<%= @forum.id %>">
+
+                       <input type="text" id="content" name="content" placeholder="Message" class="form-control" value="<%= @comment.content %>">
+
                        <span class="input-group-btn">
                            <button class="btn btn-warning btn-sm" id="btn-chat">
                                Send</button>
                        </span>
                    </div>
+               </div>
+               </div>
                </div>

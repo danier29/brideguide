@@ -7,6 +7,7 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
+    @comment = Comment.new
 
     render("forums/show.html.erb")
   end
