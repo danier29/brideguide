@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609170139) do
+ActiveRecord::Schema.define(version: 20170609231513) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "task_id"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170609170139) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "user_id"
     t.date     "due_date"
     t.date     "date_completed"
     t.string   "task_title"

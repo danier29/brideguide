@@ -20,7 +20,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new
 
-    @task.user_id = params[:user_id]
     @task.due_date = params[:due_date]
     @task.date_completed = params[:date_completed]
     @task.task_title = params[:task_title]
@@ -47,7 +46,6 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    @task.user_id = params[:user_id]
     @task.due_date = params[:due_date]
     @task.date_completed = params[:date_completed]
     @task.task_title = params[:task_title]

@@ -6,7 +6,6 @@ class Task < ApplicationRecord
   validates :task_short_desc, :presence => { :message => "This task must have a short description!" }
   validates :due_date, :presence => { :message => "This task needs a due date!" }
 
-  belongs_to :user
   belongs_to :wedding
   has_many :assignments, :dependent => :destroy
 

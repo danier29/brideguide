@@ -18,22 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @task.user_id %>">
-      </div>
-
-      <!-- Label and input for due_date -->
+            <!-- Label and input for due_date -->
       <div class="form-group">
         <label for="due_date" class="control-label">
           Due date
         </label>
 
-        <input type="text" id="due_date" name="due_date" placeholder="Due date" class="form-control" value="<%= @task.due_date %>">
+        <input type="date" id="due_date" name="due_date" placeholder="mm/dd/yy" class="form-control" value="<%= @task.due_date %>">
       </div>
 
       <!-- Label and input for date_completed -->
@@ -42,7 +33,7 @@
           Date completed
         </label>
 
-        <input type="text" id="date_completed" name="date_completed" placeholder="Date completed" class="form-control" value="<%= @task.date_completed %>">
+        <input type="date" id="date_completed" name="date_completed" placeholder="mm/dd/yy" class="form-control" value="<%= @task.date_completed %>">
       </div>
 
       <!-- Label and input for task_title -->
