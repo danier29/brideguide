@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+devise_for :users
+root "weddings#index"
+
   # Routes for the Assignment resource:
   # CREATE
   get "/assignments/new", :controller => "assignments", :action => "new"
@@ -51,10 +54,6 @@ Rails.application.routes.draw do
   get "/delete_forum/:id", :controller => "forums", :action => "destroy"
   #------------------------------
 
-devise_for :users
-
-root "weddings#index"
-
   # Routes for the Task resource:
   # CREATE
   get "/tasks/new", :controller => "tasks", :action => "new"
@@ -72,8 +71,6 @@ root "weddings#index"
   get "/delete_task/:id", :controller => "tasks", :action => "destroy"
   #------------------------------
 
-
-
   # Routes for the Wedding resource:
   # CREATE
   get "/weddings/new", :controller => "weddings", :action => "new"
@@ -90,7 +87,6 @@ root "weddings#index"
   # DELETE
   get "/delete_wedding/:id", :controller => "weddings", :action => "destroy"
   #------------------------------
-
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
