@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 devise_for :users
 root "weddings#index"
 
+  # USERS
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
+
   # Routes for the Assignment resource:
   # CREATE
   get "/assignments/new", :controller => "assignments", :action => "new"

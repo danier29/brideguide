@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+        <div class="span12">
+    		<ul class="thumbnails">
+                <li class="span5 clearfix">
+                  <div class="thumbnail clearfix">
+                    <% @users.each do |user| %>
+                    <img src="<%= user.profile_photo %>" alt="ALT NAME" class="pull-left span2 clearfix" height="200" width="200" style='margin-right:10px'>
+
+                    <div class="caption" class="pull-left">
+                      <a href="/users/<%= user.id %>" class="btn btn-primary icon  pull-right">Select</a>
+                      <h3>
+                      <a href="/users/<%= user.id %>"> <%= user.name %> </a>
+                    </h3>
+
+                      <p>
+                      <large><b>Role: </b> <%= user.role %></large> </p>
+
+                      <p> <large><b>Email: </b> <%= user.email %></large> </p>
+                      </p>
+
+                        <% end %>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>

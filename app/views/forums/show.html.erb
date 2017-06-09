@@ -1,28 +1,50 @@
-<div class="page-header">
-  <h3>Forum #<%= @forum.id %></h3>
-</div>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippet">
+    <div class="row">
+      <h1>	<%= @forum.title %> </h1>
+		<div class="col-md-12 bg-white">
+            <div class="row border-bottom padding-sm" style="height: 20px;">
+            </div>
+          </div>
+          </div>
+          </div>
 
-<div class="row">
-  <div class="col-md-12 mb-2">
-    <dl class="dl-horizontal">
-      <dt>Title</dt>
-      <dd><%= @forum.title %></dd>
 
-      <dt>Wedding</dt>
-      <dd><%= @forum.wedding_id %></dd>
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-8 bg-white">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> <%= @forum.title %> -->
 
-    </dl>
+<% @forum.comments.each do |comment| %>
+  <div class="chat-message">
+      <div class="col-md-12 bg-white">
+        <ul class="chat" style="list-style-type: none">
+          <li class="left clearfix"> <span class="chat-img pull-left">
+            <img src="<%= comment.user.profile_photo %>" alt="User Avatar" class="img-square" height="70" width="70">
+            </span>
+                <div class="chat-body clearfix">
+                    <div class="header">
+                        <strong class="primary-font"> <%= comment.user.name %> </strong>
+                        <small class="pull-right text-muted">
+                            <span class="fa fa-clock-o"></span>12 mins ago</small>
+                    </div>
+                    <p>
+                        <%= comment.content %>
+                    </p>
+                    </div>
+                    </li>
+                    </div>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/forums" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/forums/<%= @forum.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_forum/<%= @forum.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
-  </div>
-</div>
+  <% end  %>
+              <div class="panel-footer">
+                <div class="col-md-12 bg-white">
+                   <div class="input-group">
+                       <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                       <span class="input-group-btn">
+                           <button class="btn btn-warning btn-sm" id="btn-chat">
+                               Send</button>
+                       </span>
+                   </div>
+               </div>

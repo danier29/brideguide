@@ -24,7 +24,9 @@
           Task
         </label>
 
-        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @assignment.task_id %>">
+        <%= select_tag(:task_id, options_from_collection_for_select(Task.all, :id, :task_title, @assignment.task_id), :class => "form-control") %>
+      <p class="help-block">
+
       </div>
 
       <!-- Label and input for user_id -->
@@ -33,11 +35,12 @@
           User
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @assignment.user_id %>">
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :name, @assignment.user_id), :class => "form-control") %>
+      <p class="help-block">
       </div>
 
       <button class="btn btn-success">
-        Create Assignment
+        Assign this task!
       </button>
       or
       <a href="/assignments">Cancel</a>
