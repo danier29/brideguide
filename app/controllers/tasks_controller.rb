@@ -1,20 +1,17 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
-
     render("tasks/index.html.erb")
+
   end
 
   def show
     @task = Task.find(params[:id])
-
-    render("tasks/show.html.erb")
+      render("tasks/show.html.erb")
   end
 
   def new
     @task = Task.new
-    @assignment = Assignment.new
-    @user= User.all
 
     render("tasks/new.html.erb")
   end
@@ -28,12 +25,11 @@ class TasksController < ApplicationController
     @task.task_short_desc = params[:task_short_desc]
     @task.task_note = params[:task_note]
     @task.wedding_id = params[:wedding_id]
-    @task.leader_id = params[:leader_id]
-
+    @task.user_id = params[:user_id]
     save_status = @task.save
 
     if save_status == true
-      redirect_to("/tasks/#{@task.id}", :notice => "Task created successfully.")
+      redirect_to("/tasks", :notice => "Task created successfully.")
     else
       render("tasks/new.html.erb")
     end

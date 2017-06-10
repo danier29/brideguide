@@ -1,28 +1,38 @@
 <div class="page-header">
-  <h3>Wedding #<%= @wedding.id %></h3>
+  <h2> Welcome to the wedding planning space of <%= @wedding.couple_name %>! </h2>
 </div>
 
 <div class="row">
-  <div class="col-md-12 mb-2">
+  <div class="col-md-12 mb-8">
     <dl class="dl-horizontal">
-      <dt>Wedding date</dt>
-      <dd><%= @wedding.wedding_date %></dd>
-
-      <dt>Couple name</dt>
-      <dd><%= @wedding.couple_name %></dd>
+      <dt> <h3> <b> Wedding date </b> </h3> </dt>
+      <dd> <h3> <%= @wedding.wedding_date %> </h3> </dd>
+<div class="row">
+  <div class="col-md-12 mb-8">
+    <dl class="dl-horizontal">
+      <dt> <h3> <b> Couple name </b> </h3> </dt>
+      <dd> <h3> <%= @wedding.couple_name %> </h3> </dd>
 
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/weddings" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/weddings/<%= @wedding.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_wedding/<%= @wedding.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+<div class="row">
+  <div class="col-md-12 mb-2">
+  <dl class="dl-horizontal">
+    <h4> Get to know the rest of the wedding party here: <a href="/users" > Wedding Party! </a> </h4>
+
+    <div class="row">
+      <div class="col-md-12 mb-2">
+      <dl class="dl-horizontal">
+
+    <h4> Chat with our friends and family on upcoming tasks and events: <a href="/users" > Forums! </a> </h4>
+
+      <div class="row">
+        <div class="col-md-12 mb-2">
+        <dl class="dl-horizontal">
+
+      <h4> Check out our checklist of next steps, maybe you can help us! <a href="/tasks" > To-Dos </a> </h4>
+
+</dl>
+
     </div>
-  </div>
 </div>

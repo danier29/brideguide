@@ -29,11 +29,8 @@
 
       <!-- Label and input for wedding_id -->
       <div class="form-group">
-        <label for="wedding_id" class="control-label">
-          Wedding
-        </label>
 
-        <input type="text" id="wedding_id" name="wedding_id" placeholder="Wedding" class="form-control" value="<%= @forum.wedding_id %>">
+        <input type="hidden" id="wedding_id" name="wedding_id" placeholder="Wedding" class="form-control" value="<%= current_user.wedding_id %>">
       </div>
 
       <button class="btn btn-warning">

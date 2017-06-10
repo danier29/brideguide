@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
 
   has_many :assignments, :dependent => :nullify
-  has_many :tasks, :dependent => :nullify
+  has_many :tasks
   has_many :comments
   belongs_to :wedding
 

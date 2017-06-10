@@ -1,18 +1,17 @@
 <div class="container">
 		<% @users.each do |user| %>
 	<div class="row">
-        <div class="span12">
+        <div class="span6">
     		<ul class="thumbnails" style="list-style-type: none">
-                <li class="span5 clearfix">
+                <li class="span6 clearfix">
 
                   <div class="thumbnail clearfix">
 
                     <img src="<%= user.profile_photo %>" alt="Please add a profile picture!" class="pull-left span2 clearfix" height="200" width="200" style='margin-right:10px' hspace="20">
 
                     <div class="caption" class="pull-left">
-                      <a href="/users/<%= user.id %>" class="btn btn-primary icon  pull-right">Select</a>
-                      <h3>
-                      <a href="/users/<%= user.id %>"> <%= user.name %> </a>
+                                            <h3>
+                       <%= user.name %> 
                     </h3>
 
                       <p>

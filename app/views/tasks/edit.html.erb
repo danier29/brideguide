@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Task #<%= @task.id %></h3>
+  <h2>Edit this task: <%= @task.task_title %></h2>
 </div>
 
 <div class="row">
@@ -64,22 +64,9 @@
       </div>
 
       <!-- Label and input for wedding_id -->
-      <div class="form-group">
-        <label for="wedding_id" class="control-label">
-          Wedding
-        </label>
-
-        <input type="text" id="wedding_id" name="wedding_id" placeholder="Wedding" class="form-control" value="<%= @task.wedding_id %>">
-      </div>
-
-      <!-- Label and input for leader_id -->
-      <div class="form-group">
-        <label for="leader_id" class="control-label">
-          Leader
-        </label>
-
-        <input type="text" id="leader_id" name="leader_id" placeholder="Leader" class="form-control" value="<%= @task.leader_id %>">
-      </div>
+              <div>
+          <input type="hidden" name="wedding_id" value="<%= current_user.wedding.id %>">
+        </div>
 
       <button class="btn btn-warning">
         Update Task

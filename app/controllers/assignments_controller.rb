@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
   def index
     @assignments = Assignment.all
+    @users = User.all
 
     render("assignments/index.html.erb")
   end
@@ -26,7 +27,7 @@ class AssignmentsController < ApplicationController
     save_status = @assignment.save
 
     if save_status == true
-      redirect_to("/tasks/#{@assignment.task_id}", :notice => "Assignment created successfully.")
+      redirect_to("/tasks/index", :notice => "Assignment created successfully.")
     else
       render("assignments/new.html.erb")
     end
@@ -35,7 +36,7 @@ class AssignmentsController < ApplicationController
   def edit
     @assignment = Assignment.find(params[:id])
 
-    render("assignments/edit.html.erb")
+    render("assignments/index.html.erb")
   end
 
   def update

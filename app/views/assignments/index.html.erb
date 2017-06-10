@@ -9,15 +9,17 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Task</th>
         <th>User</th>
+        <th>Tasks</th>
         <th>Actions</th>
       </tr>
 
       <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.task_id %></td>
-        <td><%= assignment.user_id %></td>
+        <td><%= assignment.user.try(:name) %></td>
+        <td><%= assignment.task.task_title %></td>
+
+
         <td>
           <a href="/assignments/<%= assignment.id %>" class="btn btn-primary">Show</a>
           <a href="/assignments/<%= assignment.id %>/edit" class="btn btn-warning">Edit</a>

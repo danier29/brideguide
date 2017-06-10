@@ -2,7 +2,10 @@
 <div class="container bootstrap snippet">
     <div class="row">
       <h1>	<%= @forum.title %> </h1>
-		<div class="col-md-12 bg-white">
+      <a href="/forums" class="btn btn-primary btn-sm">Back to all forums</a>
+      <a href="/forums/<%= @forum.id %>/edit" class="btn btn-warning btn-sm">Edit this forum</a>
+
+  		<div class="col-md-12 bg-white">
             <div class="row border-bottom padding-sm" style="height: 20px;">
             </div>
           </div>
@@ -22,13 +25,15 @@
       <div class="col-md-12 bg-white">
         <ul class="chat" style="list-style-type: none">
           <li class="left clearfix"> <span class="chat-img pull-left" >
-            <img src="<%= comment.user.profile_photo %>" alt="User Avatar" class="img-square" height="80" width="100" hspace="20" >
+            <img src="<%= comment.user.profile_photo %>" alt="User Avatar" class="img-square" height="85" width="120" hspace="20" >
                   </span>
                 <div class="chat-body clearfix" >
                     <div class="header">
                         <strong class="primary-font"> <%= comment.user.name %> </strong>
                         <small class="pull-right text-muted">
-                            <span class="fa fa-clock-o"></span>12 mins ago</small>
+                            <span class="fa fa-clock-o"></span>
+                            <%= time_ago_in_words(comment.created_at) %>
+                          </small>
                     </div>
                     <p>
                         <%= comment.content %>
@@ -46,12 +51,11 @@
                        <input name="user_id" type="hidden" value="<%= current_user.id %>">
                        <input name="forum_id" type="hidden" value="<%= @forum.id %>">
 
-                       <input type="text" id="content" name="content" placeholder="Message" class="form-control" value="<%= @comment.content %>">
+                       <span>
+                       <input type="text" id="content" name="content" placeholder="Message" class="form-control" size="120" value="<%= @comment.content %>">
 
-                       <span class="input-group-btn">
-                           <button class="btn btn-warning btn-sm" id="btn-chat">
-                               Send</button>
-                       </span>
+                     <button class="btn btn-warning btn-sm" id="btn-chat"> Send</button>
+                   </span>
                    </div>
                </div>
                </div>

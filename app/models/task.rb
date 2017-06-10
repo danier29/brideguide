@@ -7,6 +7,6 @@ class Task < ApplicationRecord
   validates :due_date, :presence => { :message => "This task needs a due date!" }
 
   belongs_to :wedding
-  has_many :assignments, :dependent => :destroy
+
 
 end

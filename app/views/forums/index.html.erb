@@ -6,23 +6,23 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
+  <div class="col-md-8">
+    <table class="table table-striped">
       <tr>
         <th>Title</th>
         <th>Actions</th>
       </tr>
-
+<tbody>
       <% @forums.each do |forum| %>
       <tr>
-        <td><%= forum.title %></td>
+        <td>
+           <a href="/forums/<%= forum.id %>" class="btn btn-secondary"> <%= forum.title %> </a> </td>
       <td>
-          <a href="/forums/<%= forum.id %>" class="btn btn-primary">Show</a>
-          <a href="/forums/<%= forum.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_forum/<%= forum.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/delete_forum/<%= forum.id %>" class="btn btn-danger btn-sm" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
+    </tbody>
     </table>
   </div>
 </div>
