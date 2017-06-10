@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 devise_for :users
-root "weddings#index"
+
+root 'weddings#index'
 
   # USERS
   get "/users", :controller => "users", :action => "index"

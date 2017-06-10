@@ -45,17 +45,17 @@
   <% end  %>
               <div class="panel-footer">
             <div class="input-group">
-                  <div class="col-md-12 bg-white">
+                  <div class="col-md-10 col-md-offset-2">
                      <form action="/create_comment" method="post">
                        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                        <input name="user_id" type="hidden" value="<%= current_user.id %>">
                        <input name="forum_id" type="hidden" value="<%= @forum.id %>">
 
                        <span>
-                       <input type="text" id="content" name="content" placeholder="Message" class="form-control" size="120" value="<%= @comment.content %>">
+                       <input type="text" id="content" name="content" placeholder="Message" class="form-control" size="150" value="<%= @comment.content %>">
 
-                     <button class="btn btn-warning btn-sm" id="btn-chat"> Send</button>
-                   </span>
+                     <button class="btn btn-warning btn-sm" id="btn-chat"> Send</button> </span>
+
                    </div>
                </div>
                </div>

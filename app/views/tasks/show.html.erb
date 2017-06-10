@@ -1,7 +1,15 @@
-<div class="page-header">
-  <h1><%= @task.task_title %></h1>
-  <a href="/tasks" class="btn btn-secondary btn-sm">Back to all tasks</a>
-</div>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippet">
+    <div class="row">
+      <h1>	<%= @task.task_title %> </h1>
+      <a href="/tasks" class="btn btn-primary btn-sm">Back to all tasks</a>
+      <a href="/tasks/<%= @task.id %>/edit" class="btn btn-warning btn-sm">Edit this task</a>
+
+  		<div class="col-md-12 bg-white">
+            <div class="row border-bottom padding-sm" style="height: 20px;">
+            </div>
+          </div>
+          </div>
 
   <table class="table table-bordered">
     <colgroup>
@@ -10,27 +18,24 @@
         </colgroup>
         <tbody>
           <tr>
-        <th>Task Description</th>
+        <th>Short Description</th>
         <td><%= @task.task_short_desc %></td>
       </tr>
 
         <tr>
-          <th>Task Due Date </th>
+          <th>Due Date </th>
         <td><%= @task.due_date %> </td>
       </tr>
 
       <tr>
-        <th>Task Completed Date </th>
+        <th>Completed Date </th>
         <td> <%= @task.date_completed %></td>
       </tr>
 
       <tr>
-        <th>Task Notes</th>
+        <th>Notes</th>
         <td> <%= @task.task_note %> </td>
       </tr>
 
             </tbody>
       </table>
-
-      <a href="/tasks/<%= @task.id %>/edit" class="btn btn-warning btn-sm">Edit this task</a>
-      <a href="/delete_task/<%= @task.id %>" class="btn btn-danger btn-sm">Delete task </a>
