@@ -26,7 +26,7 @@ class AssignmentsController < ApplicationController
     save_status = @assignment.save
 
     if save_status == true
-      redirect_to("/assignments/#{@assignment.id}", :notice => "Assignment created successfully.")
+      redirect_to("/tasks/#{@assignment.task_id}", :notice => "Assignment created successfully.")
     else
       render("assignments/new.html.erb")
     end

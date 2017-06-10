@@ -13,6 +13,8 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @assignment = Assignment.new
+    @user= User.all
 
     render("tasks/new.html.erb")
   end
